@@ -14,3 +14,14 @@ export default {
   }
 }
 </script>
+<style>
+body {
+  background-color: #F5CDA7;
+  display:flex;
+  justify-content: center;
+
+}
+#app {
+  margin:20pt;
+}
+</style>

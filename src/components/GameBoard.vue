@@ -11,7 +11,9 @@
     </div>
 </template>
 <script>
-import {move} from './GameRules.js'
+import {move} from '../games/Games.js'
+
+const interpolate = require("color-interpolate");
 
 export default {
     name:"GameBoard",
@@ -44,12 +46,13 @@ export default {
         styleForBox(box){
             let zIndex = box.above ? 1 : 0;
             let len=(box.value+"").length;
+            let color=interpolate(["#F5CDA7","#DCDBA8","#C9DBBA","#75DBCD"])(Math.log2(box.value)/10)
             let fontSize= 75;
             switch(len){
                 case 3:fontSize=50;break;
                 case 4:fontSize=38;break;
             }
-            return `left:${box.x*100}px;top:${box.y*100}px;z-index:${zIndex};font-size:${fontSize}px;`
+            return `left:${box.x*100}px;top:${box.y*100}px;z-index:${zIndex};font-size:${fontSize}px;background-color:${color};`
         }
     }
     
@@ -61,19 +64,18 @@ export default {
     width: 400px;
     height: 400px;
     border-width: 4px;
-    border-color: #5F00BA;
+    border-color: #FAA381;
     border-style:solid;
     position:relative;
-    background-color:#A09BE7;
+    background-color:#F5CDA7;
 }
 .box{
     width:90px;
     height:90px;
     margin: 1px;
     border-width: 4px;
-    border-color: #D6FF79;
-    background-color:#B0FF92;
-    color:#5F00BA;
+    border-color: #FAA381;/*#BCD979;*/
+    color:#FAA381;
     border-style:solid;
     position: absolute;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
