@@ -3,9 +3,9 @@
         <transition-group name="boxes" tag="div">
             <div v-for="box in boxes" 
                 v-bind:key="box.id" 
-                v-bind:class="'box box-'+box.value" 
+                class="box" 
                 v-bind:style="styleForBox(box)">
-                {{box.value}}
+                <div class="text-container">{{box.value}}</div>
             </div>
         </transition-group>
     </div>
@@ -42,7 +42,14 @@ export default {
             }
         },
         styleForBox(box){
-            return `left:${box.x*100}px;top:${box.y*100}px`
+            let zIndex = box.above ? 1 : 0;
+            let len=(box.value+"").length;
+            let fontSize= 75;
+            switch(len){
+                case 3:fontSize=50;break;
+                case 4:fontSize=38;break;
+            }
+            return `left:${box.x*100}px;top:${box.y*100}px;z-index:${zIndex};font-size:${fontSize}px;`
         }
     }
     
@@ -73,7 +80,9 @@ export default {
     font-size: 75px;
     text-align: center;
     vertical-align: middle;
-
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .boxes-enter-active, .boxes-leave-active {
