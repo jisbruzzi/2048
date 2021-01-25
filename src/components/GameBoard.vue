@@ -46,7 +46,7 @@ export default {
         styleForBox(box){
             let zIndex = box.above ? 1 : 0;
             let len=(box.value+"").length;
-            let color=interpolate(["#F5CDA7","#DCDBA8","#C9DBBA","#75DBCD"])(Math.log2(box.value)/10)
+            let color=interpolate(["#f8fe55","#dc9a00"])((Math.log2(box.value))/5)
             let fontSize= 75;
             switch(len){
                 case 3:fontSize=50;break;
@@ -63,19 +63,21 @@ export default {
 #container {
     width: 400px;
     height: 400px;
-    border-width: 4px;
-    border-color: #FAA381;
-    border-style:solid;
     position:relative;
-    background-color:#F5CDA7;
+    /*
+    border-width: 4px;
+    border-color: #000000;
+    border-style:solid;
+    background-color:#c7c7c7;
+    */
 }
 .box{
     width:90px;
     height:90px;
     margin: 1px;
     border-width: 4px;
-    border-color: #FAA381;/*#BCD979;*/
-    color:#FAA381;
+    border-color: black;
+    color:black;
     border-style:solid;
     position: absolute;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

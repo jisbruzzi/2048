@@ -16,7 +16,7 @@ export default {
 </script>
 <style>
 body {
-  background-color: #F5CDA7;
+  background-color: #f8fe55;
   display:flex;
   justify-content: center;
 

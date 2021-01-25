@@ -22,7 +22,7 @@ export default {
     font-size: 30pt;
     font-weight: 1000;
     letter-spacing: 4pt;
-    color:#FAA381;
+    color:#000000;
 }
 #container {
     display:flex;
